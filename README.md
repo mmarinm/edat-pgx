@@ -2,11 +2,11 @@
 
 ## Installation
 
-    go get -u github.com/stackus/edat-pgx
+    go get -u github.com/mmarinm/edat-pgx
 
 ## Usage Example
 
-    import "github.com/stack/edat-pgx"
+    import "github.com/mmarinm/edat-pgx"
 
     conn, _ := pgxpool.Connect(ctx, "your-connection-string")
 
