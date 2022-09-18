@@ -165,12 +165,12 @@ func (e batchError) Exec() (pgconn.CommandTag, error) {
 func (e batchError) Query() (pgx.Rows, error) {
 	return nil, e.err
 }
-func (e batchError) QueryFunc(ctx context.Context, sql string, args []interface{}, scans []interface{}, f func(pgx.QueryFuncRow) error) (pgconn.CommandTag, error) {
+func (e batchError) QueryFunc(scans []interface{}, f func(pgx.QueryFuncRow) error) (pgconn.CommandTag, error) {
 	return nil, e.err
 }
 
 func (e batchError) QueryRow() pgx.Row {
-	return rowError{e.err}
+	return rowError(e)
 }
 
 func (e batchError) Close() error {
